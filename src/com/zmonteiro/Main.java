@@ -42,13 +42,16 @@ public class Main {
 
             System.out.print("Enter a letter: " );
             char letter = sc.next().charAt(0);
+            char updatedLetter = Character.toUpperCase(letter);
+
+
 
             double sum = employeeList.stream()
-                    .filter(emp -> emp.getName().charAt(0) == letter)
+                    .filter(emp -> emp.getName().charAt(0) == updatedLetter)
                     .map(emp -> emp.getSalary())
                     .reduce(0.0, (x, y) -> x + y);
 
-            System.out.println("Sum of salary of people whose name starts with " + letter + ": " + String.format("%.2f", sum));
+            System.out.println("Sum of salary of people whose name starts with " + updatedLetter + ": " + String.format("%.2f", sum));
 
 
 
